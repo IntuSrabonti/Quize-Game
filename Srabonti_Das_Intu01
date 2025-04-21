@@ -1,0 +1,43 @@
+def quiz():
+    count=0
+    print("Welcome to the Quiz Game! let's Start.....")
+    name = input("Enter your name: ")
+    print("Answer the following questions:")
+    questions = [
+        ("What is the capital of France?", "Paris"),
+        ("What is Full Form of OOP ?", "Object Oriented Programming"),
+        ("Who wrote 'Romeo and Juliet'?", "Shakespeare"),
+        ("What is the color of the sky on a clear day?", "Blue"),
+        ("What is the largest planet in our solar system?", "Jupiter"),
+        ("What is 12 % 7?", "5"),
+        ("What is the chemical symbol for water?", "H2O"),
+        ("Who painted the Mona Lisa?", "Da Vinci"),
+        ("What is the boiling point of water in Celsius?", "100"),
+        ("What is the square root of 81?", "9")
+    ]
+    
+    total_score = 0
+    for question, correct_answer in questions:
+        answer = input(f"{question} ")
+        if answer.lower() == correct_answer.lower():
+            total_score += 5 
+            count+=1 # Correct answer gives +5 points
+            print("Number of Correct Answer:",count)
+        else:
+            total_score -= 2 
+            print("Number of Correct Answer:",count)
+         # Incorrect answer deducts 2 points
+    
+    # Calculate the percentage score
+    percentage = (total_score / 50) * 100  # max score = 50 points (10 questions * 5 points)
+    
+    # Display the result
+    print(f"\nYour total score is: {total_score} out of 50")
+    print(f"Your percentage is: {percentage:.2f}%")
+    if percentage >= 60:
+        print("Congratulations, you passed the quiz{name}!")
+    else:
+        print("Sorry, you failed the quiz",name)
+
+if __name__ == "__main__":
+    quiz()
